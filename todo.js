@@ -1,24 +1,47 @@
-var myCounter = 0;
+var myCounter = 2;
 
-$('button').on('click', () => {
-    
-    if (document.getElementById('Input0').value != '') {
-        console.log('Input: ' + document.getElementById('Input0').value);
-        $('ul').append('<li id="ListItem' + myCounter + '"><span>' + document.getElementById('Input0').value + '</span></li>');
-        document.getElementById('Input0').value = '';
+jQuery('*:not(.nocapture)').on('click', function(e){
+    e.stopPropagation();
+    console.log('Element clicked', this, ' (', this.parentElement.id ,')'); 
+})
+
+function function_done(myElement){
+    $(myElement.parentElement).css("opacity", "15%");
+    myDoneButton = document.getElementById('todo2').getElementsByClassName('done')[0];
+    $(myDoneButton).css("fill", "green");
+
+}
+
+
+$('#input_button').on('click', () => {
+    console.log('Step in...');
+    if (document.getElementById('input_input').value != '') {
+        console.log('Input: ' + document.getElementById('input_input').value);
+
+        var myParentNode = "todo" + myCounter;
+
+    //Itt adjuk hozzá az új listaelemet
+        $addTo = document.getElementById("todo_list");
+        toAdd = '<div id="' + myParentNode + '" class="todo"></div>';
+        console.log(toAdd, '-->', $addTo);
+        $(toAdd).appendTo($addTo);
+
+    //Itt adjuk hozzá a listaelemhez a feladatot
+        $addTo = document.getElementById(myParentNode);
+        $('<div class="desc">' + document.getElementById('input_input').value + '</div>').appendTo($addTo);
+
+    //Itt adjuk hozzá a kiukát
+        $('<div onClick="this.parentElement.remove()" class="delete"></div>').appendTo($addTo);
+
+     //Itt adjuk hozzá a pipát
+        $('<div onClick="function_done(this)" class="done"></div>').appendTo($addTo);
+
         myCounter++;
-
-        var list = document.getElementsByTagName("li");
-        for(var i=0; i<list.length; i++){
-            list[i].addEventListener("click", function (e) {$(this).css("text-decoration", "line-through")});
-        }
-
+        console.log('New task added.');
+        document.getElementById('input_input').value = '';
+    } else {
+        console.log('Input empty.');   
     }
 });
 
 
-
-jQuery('*:not(.nocapture)').on('click', function(e){
-    e.stopPropagation();
-    console.log('Element clicked', this); 
-})
