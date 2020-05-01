@@ -1,0 +1,135 @@
+#main {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1200px;
+    height: 600px;
+    margin: -300px 0 0 -600px;
+    top: 50%;
+    left: 50%;
+    background-color: #f2f2f2;
+}
+
+#viewer {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    height: 370px;
+    width: 730px;
+    border: 1px solid darkgrey;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 10px gray;
+    position: relative;
+
+}
+
+.viewer {
+    height: 370px;
+    position: relative;
+}
+
+#right, #left {
+    width: 50px;
+    background-color: lightsalmon;
+}
+
+#picture {
+    width: 630px;
+    overflow: hidden;
+}
+
+#photo {
+    height: 400px;
+}
+
+#description {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0px;
+    height: 100px;
+    width: 630px;
+    z-index: 7;
+    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+#Caption {
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+#Desc {
+    font-family: 'Noticia Text', serif;
+    font-size: 14px;
+}
+
+#thumbnails {
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+    height: 31px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thumbnail {
+    height: 35px;
+    width: 54px;
+    box-shadow: 3px 3px 3px gray;
+    /* overflow: hidden; */
+    box-sizing: border-box;
+    border: 2px solid #d9d9d9;
+    position: relative;
+}
+
+.title {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: -25px;
+    top: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 10px;
+    color: lightgrey;
+    
+
+}
+
+.thumbnail:hover .title {
+    display: block;
+}
+
+#thumb7 {
+    margin-left: 0;
+}
+
+img[id^="pic"] {
+    height: 31px;
+    width: 50px;
+    object-fit: fill;
+}
+
+#left, #right {
+    background-image: url(./images/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-color: white;
+}
+
+#right {
+    transform: scaleX(-1);
+
+}
